@@ -95,3 +95,12 @@ body {
   border-radius: 100%;
   /*border-width: 2px;*/
 }
+
+html, body { height: 100%; margin: 0; padding: 0; }
+
+#map {
+
+  width: 30%;
+  height: 40%;
+
+}

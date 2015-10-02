@@ -1,13 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="app/public/style.css">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>Thermostat</title>
   </head>
 
   <body>
 
+<div style="height:100%; width:100%;">
   <div id="weather_box" style="color: white">
     <div style="text-align: right">
       <span class="weather"> Weather</span><br>
@@ -17,6 +19,8 @@
      <button id="cityBtn">Get temperature</button>
      <p id="loco"><button id="location">Get weather for my location</button></p>
   </div>
+
+  <div id="map"> </div>
 
   <div id="central">
     <div><span id="temp">20</span><span id="degree">°C</span></div>
@@ -45,7 +49,9 @@
   <script src="app/src/Power.js"></script>
   <script src="app/src/Thermostat.js"></script>
   <script src="app/src/weather.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCt3kGIezgBNKMVc_ZeRUgilg6KYXFzgVw&callback=initMap"></script>
   <script src="app/src/location.js"></script>
 
 
+</div>
 </html>
