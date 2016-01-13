@@ -12,9 +12,6 @@ app.use('/app', express.static(path.join(root, 'app')));
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(root + '/index.html'));
-  res.header("Access-Control-Allow-Origin", "*");
-    res.header('Access-Control-Allow-Methods', 'OPTIONS,GET,POST,PUT,DELETE');
-    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization, X-Requested-With");
 });
 
 app.listen(process.env.PORT || 3000, function(){
