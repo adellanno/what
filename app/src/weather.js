@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  $.ajax('//api.openweathermap.org/data/2.5/find?q=london&units=metric&APPID=e95855e73dd097a4ad32be4cb4c05bb8', {
+  $.ajax('http://api.openweathermap.org/data/2.5/find?q=london&units=metric&APPID=e95855e73dd097a4ad32be4cb4c05bb8', {
       success: function(data){
         var location = data.list[0].name;
         var temperature = Math.floor(data.list[0].main.temp) + '°C';
@@ -19,7 +19,7 @@ $(document).ready(function() {
 
   $("#cityBtn").click(function(){
     var city = $('#city').val();
-    $.ajax('//api.openweathermap.org/data/2.5/find?q=' + city + '&units=metric&APPID=e95855e73dd097a4ad32be4cb4c05bb8', {
+    $.ajax('http://api.openweathermap.org/data/2.5/find?q=' + city + '&units=metric&APPID=e95855e73dd097a4ad32be4cb4c05bb8', {
       success: function(data) {
         var location = data.list[0].name;
         var temperature = Math.floor(data.list[0].main.temp) + '°C';
@@ -47,7 +47,7 @@ $(document).ready(function() {
 
 
   function showLocation(lat, lon) {
-    $.ajax('//api.openweathermap.org/data/2.5/weather?' + 'lat=' + lat + '&' +
+    $.ajax('http://api.openweathermap.org/data/2.5/weather?' + 'lat=' + lat + '&' +
     'lon=' + lon + '&units=metric&APPID=e95855e73dd097a4ad32be4cb4c05bb8', {
       success: function(data) {
         var location = data.name;
@@ -57,5 +57,23 @@ $(document).ready(function() {
       }
     });
   };
+
+
+
+  function b(){
+
+      var apiKey = '<PRIVATE>';
+      var url = 'https://api.forecast.io/forecast/';
+      var lati = 0;
+      var longi = 0;
+      var data;
+
+      $.getJSON(url + apiKey + "/" + lati + "," + longi + "?callback=?", function(data) {
+        //console.log(data);
+        $('#weather').html('and the temperature is: ' + data.currently.temperature);
+      });
+  }
+
+
 
 });
