@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   $.ajax('http://api.openweathermap.org/data/2.5/find?q=london&units=metric&APPID=e95855e73dd097a4ad32be4cb4c05bb8', {
       success: function(data){
-        var location = data.list[1].name;
+        var location = data.list[0].name;
         var temperature = Math.floor(data.list[0].main.temp) + '°C';
         showCity(location);
         showWeather(temperature);
@@ -21,7 +21,7 @@ $(document).ready(function() {
     var city = $('#city').val();
     $.ajax('http://api.openweathermap.org/data/2.5/find?q=' + city + '&units=metric&APPID=e95855e73dd097a4ad32be4cb4c05bb8', {
       success: function(data) {
-        var location = data.list[1];
+        var location = data.list[0].name;
         var temperature = Math.floor(data.list[0].main.temp) + '°C';
         showCity(location);
         showWeather(temperature);
@@ -44,12 +44,6 @@ $(document).ready(function() {
 
   };
 
-  // function initMap(lat, lon) {
-  //   var map = new google.maps.Map(document.getElementById('map'), {
-  //     center: {lat: lat, lng: lon},
-  //     zoom: 10
-  //   });
-  // };
 
 
   function showLocation(lat, lon) {
@@ -63,35 +57,5 @@ $(document).ready(function() {
       }
     });
   };
-  //
-  // function initMap() {
-  //   var map = new google.maps.Map(document.getElementById('map'), {
-  //     center: {lat: lat, lng: long},
-  //     zoom: 10
-  //   });
-  // }
-//     var infoWindow = new google.maps.InfoWindow({map: map});
-//
-//     // Try HTML5 geolocation.
-//     if (navigator.geolocation) {
-//       navigator.geolocation.getCurrentPosition(function(position) {
-//         var pos = {
-//           lat: position.coords.latitude,
-//           lng: position.coords.longitude
-//         };
-//
-//         infoWindow.setPosition(pos);
-//         infoWindow.setContent('Location found.');
-//         map.setCenter(pos);
-//       }, function() {
-//         handleLocationError(true, infoWindow, map.getCenter());
-//       });
-//     } else {
-//       // Browser doesn't support Geolocation
-//       handleLocationError(false, infoWindow, map.getCenter());
-//     }
-//   }
-//
-//
-//
+
 });
